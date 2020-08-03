@@ -3,10 +3,11 @@ services:
   wordpress:
     depends_on:
       - db
-    image: wordpress:5.4.2
+    build: ./wordpress
+    image: leo/wordpress:1.0.0
     restart: always
-    volumes:
-      - ./wp-content:/var/www/html/wp-content 
+    # volumes:
+    #   - ./wp-content:/var/www/html/wp-content 
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_PASSWORD: p4ssw0rd!
